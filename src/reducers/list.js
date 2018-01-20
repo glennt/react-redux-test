@@ -1,8 +1,8 @@
-import { DO_STUFF } from '../constants/ActionTypes'
+import { ADD_ITEM_TO_LIST } from '../constants/ActionTypes'
 
-export default function stuffs(state = [], action) {
+export default function list(state = [], action) {
     switch (action.type) {
-        case DO_STUFF:
+        case ADD_ITEM_TO_LIST:
             return state.concat({
                     id: 1,
                     completed: false,

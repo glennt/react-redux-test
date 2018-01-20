@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './scss/index.css';
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { doStuff } from './actions'
+import { changeView } from './actions/ui'
 
+import ListContainer from './components/containers/ListContainer';
+import EditContainer from './components/containers/EditContainer'
 
 const mapStateToProps = state => {
-    return { stuffs: state.stuffs };
+    return { ui: state.ui };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        doStuff: text => {
-            dispatch(doStuff(text))
+        changeView: view => {
+            dispatch(changeView(view))
         }
     }
 }
@@ -22,46 +24,28 @@ const mapDispatchToProps = dispatch => {
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            text: ''
-        };
     }
+
+
     render() {
 
-    var list = this.props.stuffs.map((item) => {
-        return <div>{item.text}</div>
-    });
+        var currentView;
+        if(this.props.ui.view === 'LIST') {
+            currentView = <ListContainer/>
+        } else if (this.props.ui.view === 'EDIT') {
+            currentView = <EditContainer/>
+        }
 
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <div>
-            <input type="text" value={this.state.text} onChange={this.handleChange.bind(this)}/>
-            <input type="button" value="Add" onClick={this.handleAdd.bind(this)}/>
-        </div>
-          <div>
-              List of stuff
-              <div>
-                  {list}
-              </div>
+        return (
+          <div className="App">
+            <header className="App-header">
+              <img src={logo} className="App-logo" alt="logo" />
+              <h1 className="App-title">Welcome to React</h1>
+            </header>
+              {currentView}
           </div>
-      </div>
-    );
+        );
   }
-
-
-  handleChange(e) {
-      this.setState({ text: e.target.value });
-  }
-
-  handleAdd(e) {
-      this.props.doStuff(this.state.text);
-      this.setState({ text: ''});
-  }
-
 }
 
 
