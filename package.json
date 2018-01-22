@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "express": "^4.16.2",
     "react-scripts": "1.0.17"
   },
   "dependencies": {
@@ -12,7 +13,9 @@
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
-    "seamless-immutable": "^7.1.2"
+    "redux-thunk": "^2.2.0",
+    "seamless-immutable": "^7.1.2",
+    "superagent": "^3.8.2"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",

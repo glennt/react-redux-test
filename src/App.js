@@ -2,24 +2,10 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './scss/index.css';
 
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 import { changeView } from './actions/ui'
 
 import ListContainer from './components/containers/ListContainer';
-import EditContainer from './components/containers/EditContainer'
-
-const mapStateToProps = state => {
-    return { ui: state.ui };
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-        changeView: view => {
-            dispatch(changeView(view))
-        }
-    }
-}
+import EditContainer from './components/containers/EditItemContainer'
 
 class App extends Component {
     constructor(props) {
@@ -42,11 +28,16 @@ class App extends Component {
               <img src={logo} className="App-logo" alt="logo" />
               <h1 className="App-title">Welcome to React</h1>
             </header>
+            <div className="App-nav">
+                Nav goes here
+            </div>
+            <div className="App-main-container">
               {currentView}
+            </div>
           </div>
         );
   }
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
