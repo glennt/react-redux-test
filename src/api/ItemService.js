@@ -3,6 +3,11 @@ import config from '../config/config';
 
 export const getItem = (id) => {
 
-    console.log(config.apiServer+ ' >>> api server');
-
+    return new Promise((resolve, reject) => {
+        Superagent.get(config.apiServer + '/items/' + id)
+            .end((err, res) => {
+                if(err) reject(err)
+                else resolve(res.body);
+            })
+    })
 }

@@ -7,6 +7,7 @@ import { changeView } from './actions/ui'
 import NavContainer from './components/containers/NavContainer';
 import ListContainer from './components/containers/ListContainer';
 import EditContainer from './components/containers/EditItemContainer';
+import LoadedItemContainer from './components/containers/LoadedItemContainer';
 
 class App extends Component {
     constructor(props) {
@@ -19,8 +20,8 @@ class App extends Component {
         var currentView;
         if(this.props.ui.view === 'LIST') {
             currentView = <ListContainer/>
-        } else if (this.props.ui.view === 'EDIT') {
-            currentView = <EditContainer/>
+        } else if (this.props.ui.view === 'LOADED_ITEM') {
+            currentView = <LoadedItemContainer/>
         }
 
         return (

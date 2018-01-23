@@ -1,5 +1,5 @@
 import Immutable from 'seamless-immutable';
-import { ADD_ITEM_TO_LIST } from '../constants/ActionTypes'
+import { ADD_ITEM_TO_LIST, LOAD_ITEM_SUCCESS } from '../constants/ActionTypes'
 
 
 const defaultState = Immutable({
@@ -20,6 +20,10 @@ export default function items(state = defaultState, action) {
                return arr.concat(item)
             });
             return state;
+                break;
+        case LOAD_ITEM_SUCCESS:
+            return Immutable.set(state, 'loadedItem', action.item);
+            break;
         default:
             return state
     }
