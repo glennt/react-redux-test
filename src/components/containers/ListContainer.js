@@ -3,7 +3,7 @@ import { addItemToList } from '../../actions/items';
 import List from '../List.js';
 
 const mapStateToProps = state => {
-    return { items: state.items };
+    return { list: state.items.list };
 };
 
 const mapDispatchToProps = dispatch => {

@@ -4,8 +4,9 @@ import './scss/index.css';
 
 import { changeView } from './actions/ui'
 
+import NavContainer from './components/containers/NavContainer';
 import ListContainer from './components/containers/ListContainer';
-import EditContainer from './components/containers/EditItemContainer'
+import EditContainer from './components/containers/EditItemContainer';
 
 class App extends Component {
     constructor(props) {
@@ -29,7 +30,8 @@ class App extends Component {
               <h1 className="App-title">Welcome to React</h1>
             </header>
             <div className="App-nav">
-                Nav goes here
+                Current View: {this.props.ui.view}
+                <NavContainer/>
             </div>
             <div className="App-main-container">
               {currentView}

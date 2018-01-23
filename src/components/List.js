@@ -10,7 +10,7 @@ class List extends Component {
     }
     render() {
 
-        var items = this.props.items.map((item) => {
+        var list = this.props.list.map((item) => {
             return <div>{item.text}</div>
         });
 
@@ -23,7 +23,7 @@ class List extends Component {
                 <div>
                     List of stuff
                     <div>
-                        {items}
+                        {list}
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@ const defaultState = {
 export default function ui(state = defaultState, action) {
     switch (action.type) {
         case CHANGE_VIEW:
-            return Immutable.setIn(state, 'view', action.view);
+            return Immutable.set(state, 'view', action.view);
         default:
             return state
     }
