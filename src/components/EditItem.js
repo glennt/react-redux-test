@@ -4,14 +4,16 @@ class EditItem extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            text: ''
-        };
     }
     render() {
+        var color = '#FFFFFF';
+
+        if(this.props.selected) {
+            color ='red';
+        }
         return (
-            <div>
-               Test
+            <div onClick={this.props.onClick} style={{backgroundColor: color}}>
+                {this.props.text}
             </div>
         );
     }

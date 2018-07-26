@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import EditItem from './EditItem';
+import * as actions from '../actions/items';
 
 class List extends Component {
 
@@ -7,11 +9,12 @@ class List extends Component {
         this.state = {
             text: ''
         };
+        this.handleSelect = this.handleSelect.bind(this);
     }
     render() {
 
         var list = this.props.list.map((item) => {
-            return <div>{item.text}</div>
+            return <EditItem text={item.text} id={item.id} onClick={ (e) => this.handleSelect(e, item.id) } selected={item.id === this.props.selectedItemId}/>
         });
 
         return (
@@ -38,6 +41,11 @@ class List extends Component {
     handleAdd(e) {
         this.props.addItemToList(this.state.text);
         this.setState({ text: ''});
+    }
+
+    handleSelect(e, id) {
+        console.log('Select item ' + id);
+        this.props.selectItem(id);
     }
 }
 

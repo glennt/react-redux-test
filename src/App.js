@@ -37,6 +37,7 @@ class App extends Component {
             <div className="App-main-container">
               {currentView}
             </div>
+              <a href="http://localhost:5000/redirect" target="_blank">Redirect</a>
           </div>
         );
   }

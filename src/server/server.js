@@ -14,6 +14,16 @@ app.use(bodyParser.json());
 
 app.use('/items', require('./routes/items'));
 
+app.get('/redirect', (req, res) => {
+
+    res.writeHead(302, {
+        'Location': 'https://s3.amazonaws.com/prod.kfcore.reporting/publications/assets/images/projects/customer/capGemini/Capgemini-Logo-2017.png',
+        'Content-Type': 'octet-stream'
+    });
+    res.end();
+
+});
+
 var server = app.listen(5000, function () {
     var host = server.address().address
     var port = server.address().port

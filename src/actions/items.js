@@ -14,3 +14,10 @@ export function loadItemSuccess(item) {
         item: item
     };
 }
+
+export function selectItem(id) {
+    return {
+        type: types.SELECT_ITEM,
+        id: id
+    };
+}
